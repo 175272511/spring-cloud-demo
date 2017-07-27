@@ -18,7 +18,8 @@ public class AccessFilter extends ZuulFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(AccessFilter.class);
 
     /**
-     * 过滤器类型,定义过滤器在什么时候执行,pre:路由前执行, post,route,error,static
+     * 过滤器类型,定义过滤器在什么时候执行,
+     * pre:路由前执行, route:路由时执行,post:route和error后执行,error:过滤器异常后执行,static
      * to classify a filter by type. Standard types in Zuul are "pre" for pre-routing filtering,
      * "route" for routing to an origin, "post" for post-routing filters, "error" for error handling.
      * We also support a "static" type for static responses see  StaticResponseFilter.
@@ -32,7 +33,7 @@ public class AccessFilter extends ZuulFilter {
     }
 
     /**
-     * 过滤器执行顺序
+     * 过滤器执行顺序,越小优先级越高
      * @return
      */
     @Override
@@ -70,6 +71,10 @@ public class AccessFilter extends ZuulFilter {
                 response.setContentType("text/html;charset=UTF-8");
                 response.getWriter().write("鉴权失败");
             } catch (IOException e) {
+                //输出异常
+                ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                ctx.set("error.exception", e);
+                ctx.set("error.message", "错误信息");
                 e.printStackTrace();
             }
             finally {
