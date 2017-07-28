@@ -62,31 +62,31 @@ public class AccessFilter extends ZuulFilter {
 
         //鉴权失败
         String accessToken = request.getParameter("accessToken");
-        if (accessToken == null){
-            //忽略请求,不路由
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
-            HttpServletResponse response = ctx.getResponse();
-            try {
-                response.setContentType("text/html;charset=UTF-8");
-                response.getWriter().write("鉴权失败");
-            } catch (IOException e) {
-                //输出异常
-                ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                ctx.set("error.exception", e);
-                ctx.set("error.message", "错误信息");
-                e.printStackTrace();
-            }
-            finally {
-                try {
-                    response.getWriter().flush();
-                    response.getWriter().close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
+//        if (accessToken == null){
+//            //忽略请求,不路由
+//            ctx.setSendZuulResponse(false);
+//            ctx.setResponseStatusCode(401);
+//            HttpServletResponse response = ctx.getResponse();
+//            try {
+//                response.setContentType("text/html;charset=UTF-8");
+//                response.getWriter().write("鉴权失败");
+//            } catch (IOException e) {
+//                //输出异常
+//                ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//                ctx.set("error.exception", e);
+//                ctx.set("error.message", "错误信息");
+//                e.printStackTrace();
+//            }
+//            finally {
+//                try {
+//                    response.getWriter().flush();
+//                    response.getWriter().close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return null;
+//        }
 
         LOGGER.info("access token ok");
         return null;
