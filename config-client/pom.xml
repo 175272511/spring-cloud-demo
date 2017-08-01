@@ -55,6 +55,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--安全访问-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -66,6 +71,14 @@
 			<properties>
 				<config.profile>dev</config.profile>
 			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
 		</profile>
 		<profile>
 			<id>test</id>
@@ -75,6 +88,14 @@
 			<properties>
 				<config.profile>test</config.profile>
 			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
 		</profile>
 		<profile>
 			<id>prod</id>
@@ -84,6 +105,14 @@
 			<properties>
 				<config.profile>prod</config.profile>
 			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
 		</profile>
 	</profiles>
 
