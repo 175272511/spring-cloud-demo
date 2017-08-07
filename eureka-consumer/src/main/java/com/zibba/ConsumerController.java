@@ -2,6 +2,7 @@ package com.zibba;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,11 @@ public class ConsumerController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
         String name = consumerClient.sayHello("world");
+        return name;
+    }
+
+    @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
+    public String hello1(@PathVariable String name) {
         return name;
     }
 

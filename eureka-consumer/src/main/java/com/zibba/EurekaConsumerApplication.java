@@ -3,6 +3,7 @@ package com.zibba;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 /**
  * 服务消费者
  */
+//开启断路器
+//@EnableCircuitBreaker
 //服务注册与发现
 @EnableDiscoveryClient
 @SpringBootApplication
