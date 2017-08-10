@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
- * 监控平台,监控请求数,熔断数等
+ * 监控平台,监控请求数,熔断数等,可以配合spring-boot-admin监控 http://www.jianshu.com/p/e20a5f42a395
  * 需要开启turbine-amqp实现集群监控数据采集
  * 访问 http://localhost:1000/hystrix.stream
  * 输入turbine监控 http://localhost:1001/turbine.stream
