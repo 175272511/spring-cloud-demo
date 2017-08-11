@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by liuhui on 2017/4/20.
  */
-@Api(tags = "测试文档")
+@Api(value = "测试文档", description = "描述文档")
 @RestController
 public class ConsumerController {
 

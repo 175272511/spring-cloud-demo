@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
  * 服务消费者
  */
 //文档页面, 访问http://localhost:3333/swagger-ui.html
+//参考 https://my.oschina.net/wangkang80/blog/909448
 @EnableSwagger2Doc
 //开启断路器
 //@EnableCircuitBreaker
