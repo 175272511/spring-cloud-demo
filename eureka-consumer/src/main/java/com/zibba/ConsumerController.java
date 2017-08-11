@@ -1,5 +1,7 @@
 package com.zibba;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,12 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by liuhui on 2017/4/20.
  */
+@Api(tags = "测试文档")
 @RestController
 public class ConsumerController {
 
     @Autowired
     ConsumerClient consumerClient;
 
+    @ApiOperation(notes = "测试接口", value = "测试")
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
         String name = consumerClient.sayHello("world");

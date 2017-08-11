@@ -1,5 +1,6 @@
 package com.zibba;
 
+import com.didispace.swagger.EnableSwagger2Doc;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 /**
  * 服务消费者
  */
+//文档页面, 访问http://localhost:3333/swagger-ui.html
+@EnableSwagger2Doc
 //开启断路器
 //@EnableCircuitBreaker
 //服务注册与发现

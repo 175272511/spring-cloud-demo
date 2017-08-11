@@ -82,6 +82,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		<!--REST文档-->
+		<dependency>
+			<groupId>com.didispace</groupId>
+			<artifactId>spring-boot-starter-swagger</artifactId>
+			<version>1.1.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
